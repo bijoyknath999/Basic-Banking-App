@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         MyProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AddCustomers();            }
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                //AddCustomers();
+            }
         });
 
     }

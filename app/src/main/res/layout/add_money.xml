@@ -22,10 +22,11 @@
             android:id="@+id/dialog_amount"/>
 
         <Button
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:text="Send"
+            android:text="Send money"
             android:textStyle="bold"
+            android:textAllCaps="false"
             android:gravity="center"
             android:textColor="@color/white"
             android:id="@+id/dialog_money_send"/>

@@ -113,13 +113,23 @@ public class CustomersAdapters extends RecyclerView.Adapter<CustomersAdapters.Vi
                 Log.d("Details", "Amount "+amount);
                 BankDBControllers bankDBControllers = new BankDBControllers(mContext);
                 int cmount = bankDBControllers.getSingleCustomersData(email).get(0).getBalance();
-                bankDBControllers.updateBalance(email,amount+cmount);
-                TransctionsBDControllers transctionsBDControllers = new TransctionsBDControllers(mContext);
-                transctionsBDControllers.insertTransctionsData("bijoyknath999@gmail.com",email,amount+cmount);
-                dialog.dismiss();
-                notifyDataSetChanged();
-                AllCustomers.loadRV(mContext);
-                showSuccessDialog("bijoyknath999@gmail.com",email,amount+cmount);
+                int senderamount = bankDBControllers.getSingleCustomersData("bijoyknath999@gmail.com").get(0).getBalance();
+
+                if (amount>senderamount)
+                {
+                    Toast.makeText(mContext,"Insufficient Balance!!",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    bankDBControllers.updateBalance(email,amount+cmount);
+                    bankDBControllers.updateBalance("bijoyknath999@gmail.com",senderamount-amount);
+                    TransctionsBDControllers transctionsBDControllers = new TransctionsBDControllers(mContext);
+                    transctionsBDControllers.insertTransctionsData("bijoyknath999@gmail.com",email,amount);
+                    dialog.dismiss();
+                    notifyDataSetChanged();
+                    AllCustomers.loadRV(mContext);
+                    showSuccessDialog("bijoyknath999@gmail.com",email,amount);
+                }
             }
         });
         dialog.show();
