@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Banking System</string>
+    <string name="all_customers"><![CDATA[>>>> ALL CUSTOMERS <<<<]]></string>
+    <string name="name_bijoy_kumar_nath">Name : Bijoy Kumar Nath</string>
+    <string name="email_bijoyknath999_gmail_com">Email : bijoyknath999@gmail.com</string>
+    <string name="balance_10000">Balance : $10000</string>
+    <string name="send_money">Send Money</string>
+</resources>

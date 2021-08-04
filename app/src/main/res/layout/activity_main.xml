@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/spark_color">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="80dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome To"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:padding="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Basic Banking App"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/spak_color2"
+                app:cardCornerRadius="12dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/view_all_customers">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="View all \nCustomers"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                app:cardBackgroundColor="@color/spak_color2"
+                app:cardCornerRadius="12dp"
+                android:id="@+id/view_all_transctions">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="View all \nTransctions"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"/>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="170dp"
+            android:layout_height="100dp"
+            app:cardBackgroundColor="@color/spak_color2"
+            app:cardCornerRadius="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/my_profile">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="My Profile"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>
