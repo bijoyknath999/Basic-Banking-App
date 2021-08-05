@@ -61,7 +61,7 @@ public class TransctionsAdapters extends RecyclerView.Adapter<TransctionsAdapter
         String id = String.valueOf(dataList.get(position).getId());
 
 
-        holder.Text.setText("INR $"+balance+" is transferred to \n"+receiver+" with \n"+sender);
+        holder.Text.setText("INR "+balance+" is transferred to \n"+receiver+" with \n"+sender);
 
         holder.DelBTN.setOnClickListener(new View.OnClickListener() {
             @Override

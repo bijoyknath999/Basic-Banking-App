@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name : Bijoy Kumar Nath"
+                android:text="Account Holder : Bijoy Kumar Nath"
                 android:layout_marginTop="15dp"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -79,7 +79,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Balance : $1000"
+                android:text="Balance : INR 1000"
                 android:layout_marginTop="5dp"
                 android:textSize="20sp"
                 android:textStyle="bold"

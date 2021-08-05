@@ -77,9 +77,9 @@ public class ProfileActivity extends AppCompatActivity {
         String name = bankModels.getName();
         String email = bankModels.getEmail();
         int balance = bankModels.getBalance();
-        Name.setText("Name : "+name);
+        Name.setText("Account Holder : "+name);
         Email.setText("Email : "+email);
-        Balance.setText("Balance : $"+balance);
+        Balance.setText("Balance : INR "+balance);
     }
 
     @Override

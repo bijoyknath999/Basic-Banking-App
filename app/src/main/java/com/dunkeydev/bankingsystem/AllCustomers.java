@@ -25,7 +25,7 @@ public class AllCustomers extends AppCompatActivity {
     public static CustomersAdapters mAdapter;
     public static ArrayList<BankModels> customersList, getCustomersList;
     public static BankDBControllers bankDBControllers;
-    private TextView CustomersName, CustomersEmail, CustomersBalance;
+    public static TextView CustomersName, CustomersEmail, CustomersBalance;
     private Toolbar mToolbar;
 
     @Override
@@ -51,17 +51,22 @@ public class AllCustomers extends AppCompatActivity {
         RVCustomers.setLayoutManager(new LinearLayoutManager(AllCustomers.this));
 
         loadRV(AllCustomers.this);
-        getCustomersList.addAll(bankDBControllers.getSingleCustomersData("bijoyknath999@gmail.com"));
-        if (getCustomersList.get(0)!=null)
-        {
-            CustomersName.setText("Name : "+getCustomersList.get(0).getName());
-            CustomersEmail.setText("Email : "+getCustomersList.get(0).getEmail());
-            CustomersBalance.setText("Balance : $"+getCustomersList.get(0).getBalance());
-        }
     }
 
     public static void loadRV(Context context)
     {
+        BankDBControllers bankDBControllers = new BankDBControllers(context);
+        BankModels bankModels;
+        bankModels = bankDBControllers.getSingleCustomersData("bijoyknath999@gmail.com").get(0);
+        String name = bankModels.getName();
+        String email = bankModels.getEmail();
+        int balance = bankModels.getBalance();
+        if (bankModels.getEmail()!=null)
+        {
+            CustomersName.setText("Account Holder : "+name);
+            CustomersEmail.setText("Email : "+email);
+            CustomersBalance.setText("Balance : INR "+balance);
+        }
         if(customersList!=null)
         {
             customersList.clear();

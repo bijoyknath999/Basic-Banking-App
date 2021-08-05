@@ -84,7 +84,7 @@ public class CustomersAdapters extends RecyclerView.Adapter<CustomersAdapters.Vi
             }
             holder.Email.setText(" Email: "+email);
         }
-        holder.Balance.setText("Balance : $"+balance);
+        holder.Balance.setText("Balance : INR "+balance);
 
         holder.SendMoney.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,7 +143,7 @@ public class CustomersAdapters extends RecyclerView.Adapter<CustomersAdapters.Vi
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         TextView SuccessText;
         SuccessText = dialog.findViewById(R.id.success_dialog_text);
-        SuccessText.setText("INR $"+amount+" is transferred to \n"+receiver+" with "+sender);
+        SuccessText.setText("INR "+amount+" is transferred to \n"+receiver+" with "+sender);
         Button dialogButton = dialog.findViewById(R.id.success_dialog_Ok);
         // if button is clicked, close the custom dialog
         dialogButton.setOnClickListener(new View.OnClickListener() {

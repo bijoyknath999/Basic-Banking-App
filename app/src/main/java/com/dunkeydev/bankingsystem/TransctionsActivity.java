@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dunkeydev.bankingsystem.adapters.CustomersAdapters;
@@ -31,7 +32,8 @@ public class TransctionsActivity extends AppCompatActivity {
     public static ArrayList<TransctionsModels> transctionsModels;
     public static TransctionsBDControllers transctionsBDControllers;
     private Toolbar mToolbar;
-    private MenuItem menuItemClearAll;
+    public static MenuItem menuItemClearAll;
+    public static TextView EmptyList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class TransctionsActivity extends AppCompatActivity {
         mToolbar.setTitle("Transctions list");
         setSupportActionBar(mToolbar);
         mToolbar.setNavigationIcon(R.drawable.ic_back);
+        EmptyList = findViewById(R.id.transctions_empty);
 
         transctionsModels = new ArrayList<>();
         transctionsBDControllers = new TransctionsBDControllers(TransctionsActivity.this);
@@ -53,7 +56,7 @@ public class TransctionsActivity extends AppCompatActivity {
     }
 
     public static void loadRV(Context context) {
-        if(transctionsModels!=null)
+        if(!transctionsModels.isEmpty())
         {
             transctionsModels.clear();
         }
@@ -61,6 +64,20 @@ public class TransctionsActivity extends AppCompatActivity {
         mAdapter = new TransctionsAdapters(context, transctionsModels);
         RVTrancstions.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
+        if (transctionsModels.isEmpty())
+        {
+            EmptyList.setVisibility(View.VISIBLE);
+            if (menuItemClearAll!=null) {
+                menuItemClearAll.setVisible(false);
+            }
+        }
+        else
+        {
+            EmptyList.setVisibility(View.GONE);
+            if (menuItemClearAll!=null) {
+            menuItemClearAll.setVisible(true);
+            }
+        }
     }
 
     @Override
@@ -110,7 +127,7 @@ public class TransctionsActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_deleteall, menu);
         menuItemClearAll = menu.findItem(R.id.menus_delete_all);
-        //loadNotifications();
+        loadRV(TransctionsActivity.this);
         return true;
     }
 
